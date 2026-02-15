@@ -110,7 +110,7 @@ def load_emotion_dataset(subset_size=500, val_size=100, batch_size=16):
 
 
     # Charger ou télécharger le modèle
-    LOCAL_MODEL_PATH = "./models/tinybert-imdb"
+    LOCAL_MODEL_PATH = "./models/tinybert-emotion-balanced"
     
     if Path(LOCAL_MODEL_PATH).exists():
         logger.info("Modèle trouvé en local, chargement...")
@@ -122,12 +122,12 @@ def load_emotion_dataset(subset_size=500, val_size=100, batch_size=16):
         Path(LOCAL_MODEL_PATH).mkdir(parents=True, exist_ok=True)
         
         # Télécharger et sauvegarder le tokenizer
-        tokenizer = AutoTokenizer.from_pretrained('Harsha901/tinybert-imdb-sentiment-analysis-model')
+        tokenizer = AutoTokenizer.from_pretrained('AdamCodd/tinybert-emotion-balanced')
         tokenizer.save_pretrained(LOCAL_MODEL_PATH)
         logger.info(f"Tokenizer téléchargé et sauvegardé dans: {LOCAL_MODEL_PATH}")
         
         # Télécharger et sauvegarder le modèle
-        model = AutoModel.from_pretrained('Harsha901/tinybert-imdb-sentiment-analysis-model')
+        model = AutoModel.from_pretrained('AdamCodd/tinybert-emotion-balanced')
         model.save_pretrained(LOCAL_MODEL_PATH)
         logger.info(f"Modèle téléchargé et sauvegardé dans: {LOCAL_MODEL_PATH}")
     

@@ -69,7 +69,7 @@ def load_tinybert_model(num_classes=6, device=None):
     
     logger.info("Chargement du modèle TinyBERT...")
     
-    LOCAL_MODEL_PATH = "./models/tinybert-imdb"
+    LOCAL_MODEL_PATH = "./models/tinybert-emotion-balanced"
     
     # Charger le modèle pré-entraîné
     model = AutoModelForSequenceClassification.from_pretrained(
@@ -142,7 +142,7 @@ def get_model_info(model):
         dict: Informations du modèle
     """
     return {
-        'model_name': 'Tinybert-imdb',
+        'model_name': 'Tinybert-emotion-balanced',
         'num_labels': model.config.num_labels,
         'hidden_size': model.config.hidden_size,
         'num_hidden_layers': model.config.num_hidden_layers,
