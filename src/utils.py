@@ -18,7 +18,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def create_directories(base_path='projet_transformers_complet'):
+def create_directories(base_path='outputs'):
     """
     Crée les répertoires nécessaires
     
@@ -30,7 +30,7 @@ def create_directories(base_path='projet_transformers_complet'):
     logger.info(f"Répertoires créés dans {base_path}")
 
 
-def save_results_json(results, filename=None, base_path='projet_transformers_complet'):
+def save_results_json(results, filename=None, base_path='outputs'):
     """
     Sauvegarde les résultats en JSON
     
@@ -88,7 +88,7 @@ def load_results_json(filepath):
     return results
 
 
-def plot_loss_curves(results, config_id, base_path='projet_transformers_complet'):
+def plot_loss_curves(results, config_id, base_path='outputs'):
     """
     Trace les courbes de loss (train + val)
     
@@ -127,7 +127,7 @@ def plot_loss_curves(results, config_id, base_path='projet_transformers_complet'
     logger.info(f"Loss plot sauvegardé: {filepath}")
 
 
-def plot_accuracy_curves(results, config_id, base_path='projet_transformers_complet'):
+def plot_accuracy_curves(results, config_id, base_path='outputs'):
     """
     Trace les courbes d'accuracy et F1-macro
     
@@ -165,7 +165,7 @@ def plot_accuracy_curves(results, config_id, base_path='projet_transformers_comp
     logger.info(f"Accuracy plot sauvegardé: {filepath}")
 
 
-def plot_all_configs_comparison(all_results, base_path='projet_transformers_complet'):
+def plot_all_configs_comparison(all_results, base_path='outputs'):
     """
     Trace un graphique comparatif de tous les optimiseurs
     

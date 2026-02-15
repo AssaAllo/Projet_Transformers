@@ -155,7 +155,7 @@ def calculate_sharpness(
 
 
 def plot_loss_landscape(alphas, losses, optimizer_name, learning_rate,
-                       base_path='projet_transformers_complet'):
+                       base_path='outputs'):
     """
     Trace le paysage de loss
     
@@ -188,7 +188,7 @@ def plot_loss_landscape(alphas, losses, optimizer_name, learning_rate,
     logger.info(f"Loss landscape plot sauvegardé: {filepath}")
 
 
-def compare_sharpness(results_list, base_path='projet_transformers_complet'):
+def compare_sharpness(results_list, base_path='outputs'):
     """
     Compare la sharpness de différents modèles
     

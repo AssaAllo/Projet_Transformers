@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ### 2. Lancer le Random Search
 
 ```bash
-cd projet_transformers_complet
+cd projet_transformers
 python src/random_search.py
 ```
 
@@ -40,16 +40,16 @@ jupyter notebook notebooks/analysis.ipynb
 ##  Structure du projet
 
 ```
-projet_transformers_complet/
+projet_transformers/
 │
 ├── src/                          # Code source principal
 │   ├── __init__.py              # Package init
-│   ├── data_loader.py           # Chargement du dataset (120 lignes)
-│   ├── model_setup.py           # Setup TinyBERT (110 lignes)
-│   ├── train_eval.py            # Loops d'entraînement (240 lignes)
-│   ├── random_search.py         # ⭐ POINT D'ENTRÉE (260 lignes)
-│   ├── loss_landscape.py        # Analyse du landscape (240 lignes)
-│   └── utils.py                 # Utilities (180 lignes)
+│   ├── data_loader.py           # Chargement du dataset 
+│   ├── model_setup.py           # Setup TinyBERT 
+│   ├── train_eval.py            # Loops d'entraînement 
+│   ├── random_search.py         # POINT D'ENTRÉE
+│   ├── loss_landscape.py        # Analyse du landscape 
+│   └── utils.py                 # Utilities 
 │
 ├── notebooks/                   # Jupyter notebooks
 │   ├── exploration.ipynb        # Exploration du dataset

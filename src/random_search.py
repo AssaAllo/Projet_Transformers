@@ -221,13 +221,13 @@ def main():
     print("="*80)
     print(f"\n📊 Résultats sauvegardés dans:")
     print(f"   • JSON: {json_filepath}")
-    print(f"   • Graphiques PNG: projet_transformers_complet/plots/")
+    print(f"   • Graphiques PNG: outputs/plots/")
     print(f"\n📈 Fichiers générés:")
     print(f"   • {len(all_results)} graphiques de loss")
     print(f"   • {len(all_results)} graphiques d'accuracy")
     print(f"   • 1 graphique de comparaison")
     
-    if os.path.exists(os.path.join('projet_transformers_complet', 'plots',
+    if os.path.exists(os.path.join('outputs', 'plots',
                                    f'landscape_{best_optimizer}_lr{best_lr}.png')):
         print(f"   • 1 loss landscape plot")
     
