@@ -144,9 +144,9 @@ def train_with_early_stopping(
     optimizer_name,
     learning_rate,
     device,
-    max_steps=100,
+    max_steps=200,
     eval_steps=25,
-    patience=2
+    patience=5
 ):
     """
     Entraîne le modèle avec early stopping

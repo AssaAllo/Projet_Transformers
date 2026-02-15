@@ -36,7 +36,7 @@ def main():
     """
     
     print("\n" + "="*80)
-    print("🎓 PROJET G13 - FINE-TUNING TINYBERT POUR EMOTION DETECTION")
+    print(" PROJET G13 - FINE-TUNING TINYBERT POUR EMOTION DETECTION")
     print("="*80)
     print("Random Search: Comparaison d'optimiseurs et learning rates")
     print("="*80 + "\n")
@@ -45,13 +45,13 @@ def main():
     
     # Hyperparamètres du dataset
     TRAIN_SUBSET_SIZE = 10000  # Nombre d'exemples d'entraînement
-    VAL_SIZE = 1000           # Nombre d'exemples de validation
-    BATCH_SIZE = 16          # Taille des batches
+    VAL_SIZE = 2000           # Nombre d'exemples de validation
+    BATCH_SIZE = 32         # Taille des batches
     
     # Hyperparamètres d'entraînement
-    MAX_STEPS = 100          # Nombre maximum de steps
+    MAX_STEPS = 200         # Nombre maximum de steps
     EVAL_STEPS = 25          # Évaluation tous les N steps
-    PATIENCE = 10           # Early stopping patience
+    PATIENCE = 5           # Early stopping patience
     
     # Configurations à tester (optimizer, learning_rate)
     CONFIGS = [
