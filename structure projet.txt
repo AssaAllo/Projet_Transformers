@@ -1,0 +1,13 @@
+projet_transformers/
+  requirements.txt
+  README.md
+  src/
+    data_loader.py
+    model_setup.py
+    train_eval.py
+    random_search.py
+    loss_landscape.py
+    utils.py
+  notebooks/
+    exploration.ipynb
+    analysis.ipynb
