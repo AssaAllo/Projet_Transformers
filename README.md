@@ -121,7 +121,7 @@ Contient pour chaque configuration:
 - F1-macro final
 - Historique complet d'entraînement (loss, accuracy, F1)
 
-### 2. Graphiques PNG (18 fichiers)
+### 2. Graphiques PNG (20 fichiers)
 
 **Loss curves** (9 fichiers):
 - `loss_config_1_AdamW_lr1e-05.png`
@@ -134,6 +134,9 @@ Contient pour chaque configuration:
 
 **Comparaison globale** (1 fichier):
 - `comparison_all_configs.png` - Barplot comparant tous les optimiseurs
+
+**Loss landscape** (1 fichier):
+- `landscape_**_lr**.png` - Courbe landscape
 
 ### 3. Console output
 Classement final des configurations par accuracy
