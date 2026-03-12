@@ -1,4 +1,4 @@
-# Projet G13 - Fine-tuning TinyBERT pour Emotion Detection
+# Projet 13 - Fine-tuning TinyBERT pour Emotion Detection
 
 ## Vue d'ensemble
 
@@ -64,7 +64,9 @@ projet_transformers/
 |           
 │   └── results
 |       └──optimization_results_*.json  # Résultats (JSON)
-│   
+|
+├── report/   
+│   └── main.pdf                 # Rapport du projet 
 │
 ├── requirements.txt             # Dépendances
 └── README.md                    # Ce fichier
@@ -260,4 +262,4 @@ Ce projet est fourni pour usage académique dans le cadre du cours G13.
 
 **Date de création**: Mars 2026
 **Version**: 1.0.0
-**Statut**: Production-ready ✅
+**Statut**: Production-ready
