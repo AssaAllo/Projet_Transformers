@@ -5,7 +5,9 @@
 Ce projet contient un **Random Search complet** pour comparer différents optimiseurs (AdamW, SGD, Adafactor) et learning rates lors du fine-tuning du modèle **TinyBERT** sur la tâche de détection des émotions.
 
 **Modèle**: TinyBERT_General_4L_312D (14M paramètres)
+
 **Dataset**: Emotion Detection (6 classes: sadness, joy, love, anger, fear, surprise)
+
 **Approche**: Random Search testing 9 configurations
 
 ---
@@ -209,7 +211,7 @@ EVAL_STEPS = 10
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Q: Ça prend combien de temps?**
 A: 30-60 min sur CPU moyen, 5-10 min sur GPU.
@@ -234,7 +236,7 @@ A: Visualisation de comment la loss change quand on perturbe le modèle entraîn
 
 ---
 
-## 📝 Citation et références
+## Citation et références
 
 ### Modèles utilisés
 - **TinyBERT**: Jiao et al., "TinyBERT: Distilling BERT for Natural Language Understanding", 2020
@@ -245,7 +247,7 @@ A: Visualisation de comment la loss change quand on perturbe le modèle entraîn
 
 ---
 
-## 📧 Support
+## Support
 
 En cas de problème:
 1. Consultez la section "Gestion de la mémoire"
@@ -254,7 +256,7 @@ En cas de problème:
 
 ---
 
-## 📄 License
+## License
 
 Ce projet est fourni pour usage académique dans le cadre du cours G13.
 
