@@ -55,14 +55,16 @@ projet_transformers/
 │   ├── exploration.ipynb        # Exploration du dataset
 │   └── analysis.ipynb           # Analyse des résultats
 │
-├── results/                     # Résultats (JSON)
-│   └── optimization_results_*.json
-│
-├── plots/                       # Visualisations (PNG)
-│   ├── loss_config_*.png
-│   ├── acc_config_*.png
-│   ├── landscape_*.png
-│   └── comparison_all_configs.png
+├── outputs/                     
+│   └── plots                    # Visualisations (PNG)
+|       ├── loss_config_*.png
+│       ├── acc_config_*.png
+│       ├── landscape_*.png
+│       └── comparison_all_configs.png    
+|           
+│   └── results
+|       └──optimization_results_*.json  # Résultats (JSON)
+│   
 │
 ├── requirements.txt             # Dépendances
 └── README.md                    # Ce fichier
@@ -73,14 +75,14 @@ projet_transformers/
 ##  Configuration par défaut
 
 ### Dataset
-- **Train subset**: 500 exemples (équilibré, ~83 par classe)
-- **Validation**: 100 exemples
-- **Batch size**: 16
+- **Train subset**: 10000 exemples (équilibré, ~83 par classe)
+- **Validation**: 2000 exemples
+- **Batch size**: 32
 
 ### Entraînement
-- **Max steps**: 100
+- **Max steps**: 200
 - **Evaluation frequency**: Tous les 25 steps
-- **Early stopping patience**: 2 (arrête si pas d'amélioration pendant 2 evaluations)
+- **Early stopping patience**: 5 (arrête si pas d'amélioration pendant 5 evaluations)
 
 ### Configurations testées (9 au total)
 
@@ -104,7 +106,7 @@ Après l'exécution, vous aurez:
 
 ### 1. Fichier JSON (résultats complets)
 ```
-results/optimization_results_20260214_153022.json
+outputs/results/optimization_results_20260214_153022.json
 ```
 
 Contient pour chaque configuration:
@@ -140,10 +142,10 @@ Pour modifier les hyperparamètres, éditez `src/random_search.py`:
 
 ```python
 # Line ~60-70
-TRAIN_SUBSET_SIZE = 500  # Réduire si OutOfMemory
-VAL_SIZE = 100
-BATCH_SIZE = 16          # Réduire si OutOfMemory
-MAX_STEPS = 100          # Réduire si trop lent
+TRAIN_SUBSET_SIZE = 10000  # Réduire si OutOfMemory
+VAL_SIZE = 20000
+BATCH_SIZE = 32          # Réduire si OutOfMemory
+MAX_STEPS = 200          # Réduire si trop lent
 EVAL_STEPS = 25
 ```
 
@@ -167,18 +169,18 @@ Si vous avez des problèmes OutOfMemory:
 
 ### Option 1: Réduire la taille du subset
 ```python
-TRAIN_SUBSET_SIZE = 200  # Au lieu de 500
-VAL_SIZE = 50            # Au lieu de 100
+TRAIN_SUBSET_SIZE = 5000  # Au lieu de 10000
+VAL_SIZE = 1000            # Au lieu de 2000
 ```
 
 ### Option 2: Réduire la taille des batches
 ```python
-BATCH_SIZE = 8           # Au lieu de 16
+BATCH_SIZE = 16           # Au lieu de 32
 ```
 
 ### Option 3: Réduire le nombre d'étapes
 ```python
-MAX_STEPS = 50           # Au lieu de 100
+MAX_STEPS = 50           # Au lieu de 200
 EVAL_STEPS = 10
 ```
 
@@ -202,44 +204,6 @@ EVAL_STEPS = 10
 ### Métriques d'évaluation
 - **Accuracy**: Nombre de prédictions correctes / Total
 - **F1-macro**: Moyenne non pondérée des F1-scores par classe
-
----
-
-## Pour votre rapport (8-10 pages)
-
-### Structure recommandée
-
-**Introduction** (1-1.5 pages)
-- Contexte: Fine-tuning de transformers
-- Problème: Quel optimiseur choisir?
-- Dataset: Emotion Detection
-- Approche: Random Search
-
-**Méthodologie** (2-2.5 pages)
-- Modèle: TinyBERT (architecture, paramètres)
-- Dataset et préparation des données
-- Optimiseurs testés et leurs caractéristiques
-- Configuration expérimentale (hyperparamètres)
-- Protocole d'évaluation
-
-**Résultats** (3-4 pages)
-- Tableau comparatif des 9 configurations
-- Graphiques de convergence (loss, accuracy)
-- Analyse du loss landscape
-- Meilleur optimizer et learning rate
-- Discussion des résultats
-
-**Discussion** (1.5-2 pages)
-- Pourquoi cet optimizer est meilleur?
-- Impact du learning rate
-- Relation entre flatness et généralisation
-- Limitations de l'approche
-- Insights intéressants
-
-**Conclusion** (0.5-1 page)
-- Résumé des findings clés
-- Recommandations pour le choix d'optimizer
-- Améliorations futures possibles
 
 ---
 
@@ -294,6 +258,6 @@ Ce projet est fourni pour usage académique dans le cadre du cours G13.
 
 ---
 
-**Date de création**: Février 2026
+**Date de création**: Mars 2026
 **Version**: 1.0.0
 **Statut**: Production-ready ✅

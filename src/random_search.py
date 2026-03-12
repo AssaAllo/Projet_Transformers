@@ -1,7 +1,7 @@
 """
 random_search.py - Random Search Benchmark pour Fine-tuning TinyBERT
 
-⭐ POINT D'ENTRÉE PRINCIPAL
+POINT D'ENTRÉE PRINCIPAL
 Lancez ceci avec: python src/random_search.py
 
 Ce script:
@@ -209,6 +209,18 @@ def main():
         loss_landscape.plot_loss_landscape(alphas, losses, best_optimizer, best_lr)
         
         logger.info("Loss landscape analysé avec succès")
+        
+        
+         # 2) Sharpness (SAM-like) sur la validation
+        sharp = loss_landscape.calculate_sharpness(
+            model=best_model,
+            val_loader=val_loader,
+            device=device,
+            radius=0.1,       # garde cohérent avec le landscape
+            num_samples=10
+        )
+        logger.info(f"[Sharpness] best={best_optimizer} lr={best_lr}: {sharp:.6f}")       
+        
     except Exception as e:
         logger.warning(f"Analyse du loss landscape impossible: {e}")
     
@@ -217,12 +229,12 @@ def main():
     # ==================== RÉSUMÉ FINAL ====================
     
     print("="*80)
-    print("✅ RANDOM SEARCH COMPLET!")
+    print(" RANDOM SEARCH COMPLET!")
     print("="*80)
-    print(f"\n📊 Résultats sauvegardés dans:")
+    print(f"\n Résultats sauvegardés dans:")
     print(f"   • JSON: {json_filepath}")
     print(f"   • Graphiques PNG: outputs/plots/")
-    print(f"\n📈 Fichiers générés:")
+    print(f"\n Fichiers générés:")
     print(f"   • {len(all_results)} graphiques de loss")
     print(f"   • {len(all_results)} graphiques d'accuracy")
     print(f"   • 1 graphique de comparaison")
@@ -231,18 +243,17 @@ def main():
                                    f'landscape_{best_optimizer}_lr{best_lr}.png')):
         print(f"   • 1 loss landscape plot")
     
-    print(f"\n🏆 Meilleur optimizer: {best_optimizer} (lr={best_lr})")
+    print(f"\n Meilleur optimizer: {best_optimizer} (lr={best_lr})")
     print(f"   Accuracy finale: {best_result['final_accuracy']:.4f}")
     print(f"   F1-macro final: {best_result['final_f1_macro']:.4f}")
     
-    print(f"\n📖 Prochaines étapes:")
+    print(f"\n Prochaines étapes:")
     print(f"   1. Lire les résultats JSON")
     print(f"   2. Analyser les graphiques PNG")
     print(f"   3. Lancer le notebook: jupyter notebook notebooks/analysis.ipynb")
-    print(f"   4. Écrire le rapport (8-10 pages)")
-    
+        
     print("\n" + "="*80)
-    print("🚀 PROJET TERMINÉ!")
+    print(" PROJET TERMINÉ!")
     print("="*80 + "\n")
 
 
